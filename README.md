@@ -1,33 +1,103 @@
-# AdventOfCodeCli
+# 🎄 Advent of Code CLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/advent_of_code_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+> ⚠️ **Note:** This tool is under active development. I built in in a couple hours with no automated tests. Things may change between versions!
 
-TODO: Delete this and the text above, and describe your gem
+A little CLI tool that scaffolds and runs [Advent of Code](https://advent-of-code.com) solutions in Ruby.
+
+This project is heavily based on [advent-of-code-rust](https://github.com/arturopala/advent-of-code-rust). Go check it out!
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Add this line to your application's `Gemfile`:
 
-    $ bundle add advent_of_code_cli
+```ruby
+gem "advent_of_code_cli"
+```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install advent_of_code_cli
+Run `bundle install`.
 
 ## Usage
 
-TODO: Write usage instructions here
+### Scaffold
 
-## Development
+This command will set up the files for any day of Advent of Code. It takes a nubmer between 1 and 25 as an argument.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```bash
+bundle exec aoc_cli scaffold 1
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Creating file: 01.rb...
+Creating inputs directory...
+Creating file: inputs/01.txt...
+Creating examples directory...
+Creating examples/01 directory...
+```
+
+The file `01.rb` will have the following structure:
+
+```rb
+module Day01
+  class << self
+    def part_one(input)
+      raise NotImplementedError
+    end
+
+    def part_two(input)
+      raise NotImplementedError
+    end
+  end
+end
+```
+
+I would love to make this structure configurable in the future.
+
+### Download
+
+This command will download the input for a given day.
+
+In order for this to work, you must provide your Advent of Code session cookie to the program in an environment variable:
+
+```bash
+export AOC_COOKIE=your-cookie
+```
+
+Once the environment variable is set, you can request your personal input for any day.
+
+```bash
+bundle exec aoc_cli download 1
+
+Fetching input...
+Writing input to inputs/01.txt...
+Done!
+```
+
+By default, the CLI will request the input for this year, but you can request previous years' input by passing a `--year` flag.
+
+```bash
+bundle exec aoc_cli download 1 --year 2021
+```
+
+### Solve
+
+This command will run your solution to a certain day's puzzle.
+
+```
+bundle exec aoc_cli solve 1
+Reading input...
+Loading solution...
+
+Running part one...
+Part one result: 10000
+Took 0.000259 seconds to solve
+
+Running part two...
+Part two result: 10000
+Took 0.00026 seconds to solve
+
+Done!
+```
+
+This command expects files to be in the format provided by the `scaffold` command. Once again, I would love to make this configurable but haven't gotten around to it yet.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/advent_of_code_cli.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Issues and code contributions are welcome! Happy Advent of Code to all who celebrate! 🎁
