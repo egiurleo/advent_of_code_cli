@@ -6,28 +6,36 @@ require "uri"
 module AdventOfCodeCli
   module Commands
     class Download < Command
-      def initialize(year: Time.now.year, day:)
+      def initialize(year:, day:)
         @year = year
-
         super(day: day)
       end
 
       def execute
-        raise MissingCookieError unless cookie
+        raise MissingCookieError unless cookie_present? && cookie
 
-        # TODO: error handling
+        say("Fetching input...")
         input = fetch_input
 
-        Dir.mkdir("inputs") unless Dir.exist?("inputs")
-        File.open("inputs/#{day_string}.txt", "w") do |file|
-          file.puts(input)
+        unless Dir.exist?("inputs")
+          say("Creating inputs directory...")
+          Dir.mkdir("inputs")
         end
+
+        say("Writing input to #{input_file_name}...")
+        create_file(input_file_name, input)
+
+        say("Done!", :green)
       end
 
       private
 
       def cookie
         @cookie ||= File.read("cookie.txt").strip
+      end
+
+      def cookie_present?
+        File.exist?("cookie.txt")
       end
 
       def fetch_input

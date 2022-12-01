@@ -24,6 +24,12 @@ module AdventOfCodeCli
       def input_file_name
         "inputs/#{day_string}.txt"
       end
+
+      def create_file(file_name, contents = nil)
+        File.open(file_name, "w") do |file|
+          file.puts contents if contents
+        end
+      end
     end
   end
 end

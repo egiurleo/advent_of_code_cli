@@ -30,12 +30,6 @@ module AdventOfCodeCli
 
       private
 
-      def create_file(file_name, contents = nil)
-        File.open(file_name, "w") do |file|
-          file.puts contents if contents
-        end
-      end
-
       def solution_file_contents
         <<~RUBY
         module Day#{day_string}
