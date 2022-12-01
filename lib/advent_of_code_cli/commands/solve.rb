@@ -32,7 +32,7 @@ module AdventOfCode
         end_time = Time.now
 
         say "Part #{part} result: #{result}"
-        say "Took #{end_time-start_time} seconds to solve"
+        say "Took #{end_time - start_time} seconds to solve"
       end
     end
   end

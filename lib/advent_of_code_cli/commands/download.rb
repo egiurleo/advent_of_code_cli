@@ -31,7 +31,7 @@ module AdventOfCode
       private
 
       def cookie
-        @cookie ||= ENV["AOC_COOKIE"]
+        @cookie ||= ENV.fetch("AOC_COOKIE", nil)
       end
 
       def cookie_present?

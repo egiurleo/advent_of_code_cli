@@ -32,17 +32,17 @@ module AdventOfCode
 
       def solution_file_contents
         <<~RUBY
-        module Day#{day_string}
-          class << self
-            def part_one(input)
-              raise NotImplementedError
-            end
+          module Day#{day_string}
+            class << self
+              def part_one(input)
+                raise NotImplementedError
+              end
 
-            def part_two(input)
-              raise NotImplementedError
+              def part_two(input)
+                raise NotImplementedError
+              end
             end
           end
-        end
         RUBY
       end
     end

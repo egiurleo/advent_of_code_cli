@@ -1,5 +1,6 @@
 AllCops:
   TargetRubyVersion: 2.6
+  NewCops: enable
 
 Style/Documentation:
   Enabled: false
@@ -14,3 +15,9 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
