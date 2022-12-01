@@ -24,7 +24,11 @@ This command will set up the files for any day of Advent of Code. It takes a nub
 
 ```bash
 bundle exec aoc_cli scaffold 1
+```
 
+This will result in the following output:
+
+```
 Creating file: 01.rb...
 Creating inputs directory...
 Creating file: inputs/01.txt...
@@ -64,7 +68,11 @@ Once the environment variable is set, you can request your personal input for an
 
 ```bash
 bundle exec aoc_cli download 1
+```
 
+This will create the following output:
+
+```
 Fetching input...
 Writing input to inputs/01.txt...
 Done!
@@ -82,6 +90,11 @@ This command will run your solution to a certain day's puzzle.
 
 ```
 bundle exec aoc_cli solve 1
+```
+
+This will create the following output:
+
+```
 Reading input...
 Loading solution...
 
