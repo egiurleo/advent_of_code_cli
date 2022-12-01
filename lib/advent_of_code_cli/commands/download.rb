@@ -46,6 +46,9 @@ module AdventOfCode
 
         request = Net::HTTP::Get.new(url)
         request["Cookie"] = "session=#{cookie}"
+        # The creator of Advent of Code has requested that automated tools send identifying information
+        # when making requests: https://www.reddit.com/r/adventofcode/comments/z9dhtd
+        request["User-Agent"] = "github.com/egiurleo/advent_of_code_cli by emily.samp@icloud.com"
 
         response = https.request(request)
         response.read_body
