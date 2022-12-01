@@ -10,7 +10,7 @@ module AdventOfCode
         raise MissingSolutionError unless File.exist?(solution_file_name)
 
         say "Reading input..."
-        input = File.read(input_file_name).strip
+        input = File.readlines(input_file_name, chomp: true)
 
         say "Loading solution..."
         load(solution_file_name)
