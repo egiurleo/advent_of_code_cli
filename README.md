@@ -2,7 +2,7 @@
 
 > ⚠️ **Note:** This tool is under active development. I built in in a couple hours with no automated tests. Things may change between versions!
 
-A little CLI tool that scaffolds and runs [Advent of Code](https://advent-of-code.com) solutions in Ruby.
+A little CLI tool that scaffolds and runs [Advent of Code](https://adventofcode.com) solutions in Ruby.
 
 This project is heavily based on [advent-of-code-rust](https://github.com/arturopala/advent-of-code-rust). Go check it out!
 
