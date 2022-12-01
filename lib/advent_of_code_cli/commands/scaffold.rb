@@ -24,7 +24,7 @@ module AdventOfCodeCli
         File.open("inputs/#{day_string}.txt", "w").close
 
         Dir.mkdir("examples") unless Dir.exist?("examples")
-        File.open("examples/#{day_string}.txt", "w").close
+        Dir.mkdir("examples/#{day_string}") unless Dir.exist?("examples/#{day_string}")
       end
     end
   end
