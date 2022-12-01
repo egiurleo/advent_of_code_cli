@@ -21,5 +21,10 @@ module AdventOfCode
     rescue AdventOfCodeCli::InvalidDayError
       say "Error: The day argument must be an integer between 1 and 25.", :red
     end
+
+    desc "cookie VALUE", "store your Advent of Code cookie with value VALUE in the cookie.txt file"
+    def cookie(value)
+      AdventOfCodeCli::Commands::Cookie.new(value: value).execute
+    end
   end
 end
