@@ -3,10 +3,10 @@
 module AdventOfCodeCli
   module Commands
     class Command
+      include Thor::Base
+
       def initialize(day:)
-        unless day.is_a?(Integer) && day > 0 && day < 26
-          raise ArgumentError.new("#{day} is not a valid day argument; must be an integer between 1 and 25")
-        end
+        raise InvalidDayError unless day.is_a?(Integer) && day.positive? && day <= 25
 
         @day = day
       end
@@ -15,6 +15,14 @@ module AdventOfCodeCli
 
       def day_string
         @day < 10 ? "0#{@day}" : @day.to_s
+      end
+
+      def solution_file_name
+        "#{day_string}.rb"
+      end
+
+      def input_file_name
+        "inputs/#{day_string}.txt"
       end
     end
   end

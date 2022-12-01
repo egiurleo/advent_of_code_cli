@@ -2,3 +2,5 @@
 # frozen_string_literal: true
 
 require "advent_of_code_cli"
+
+AdventOfCode::CLI.start(ARGV)
