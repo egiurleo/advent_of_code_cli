@@ -37,6 +37,17 @@ module AdventOfCode
       say "Error: Cannot find cookie in cookie.txt file.", :red
     end
 
+    desc "solve DAY", "run your solutions for day DAY"
+    def solve(day)
+      AdventOfCodeCli::Commands::Solve.new(day: day.to_i).execute
+    rescue AdventOfCodeCli::InvalidDayError
+      rescue_invalid_day_error
+    rescue AdventOfCodeCli::MissingInputError
+      say "Error: Cannot find input file.", :red
+    rescue AdventOfCodeCli::MissingSolutionError
+      say "Error: Cannot find solution file.", :red
+    end
+
     private
 
     def rescue_invalid_day_error

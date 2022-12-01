@@ -1,43 +1,40 @@
 # frozen_string_literal: true
 
+require 'benchmark'
+
 module AdventOfCodeCli
   module Commands
     class Solve < Command
-      def initialize(day:, part:)
-        unless part == 1 || part == 2
-          raise ArgumentError.new("#{part} is an invalid part argument; must be 1 or 2")
-        end
-
-        @part = part
-        super(day: day)
-      end
-
       def execute
-        unless File.exist?(input_file_name)
-          raise MissingInputError
-        end
+        raise MissingInputError unless File.exist?(input_file_name)
+        raise MissingSolutionError unless File.exist?(solution_file_name)
 
-        unless File.exist?(solution_file_name)
-          raise MissingSolutionError
-        end
-
+        say "Reading input..."
         input = File.read(input_file_name).strip
+
+        say "Loading solution..."
         load(solution_file_name)
 
         module_name = "Day#{day_string}"
-        method_name = @part == 1 ? "part_one" : "part_two"
 
-        Object.const_get(module_name).send(method_name)
+        say "\nRunning part one..."
+        solution(module_name, "one", input)
+
+        say "\nRunning part two..."
+        solution(module_name, "two", input)
+
+        say "\nDone!", :green
       end
 
       private
 
-      def input_file_name
-        @input_file_name ||= "inputs/#{day_string}.txt"
-      end
+      def solution(module_name, part, input)
+        start_time = Time.now
+        result = Object.const_get(module_name).send("part_#{part}", input)
+        end_time = Time.now
 
-      def solution_file_name
-        @solution_file_name ||= "#{day_string}.rb"
+        say "Part #{part} result: #{result}"
+        say "Took #{end_time-start_time} seconds to solve"
       end
     end
   end
