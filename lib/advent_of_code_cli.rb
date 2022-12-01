@@ -5,5 +5,5 @@ require_relative "advent_of_code_cli/commands"
 
 module AdventOfCodeCli
   class Error < StandardError; end
-  # Your code goes here...
+  class MissingCookieError < Error; end
 end

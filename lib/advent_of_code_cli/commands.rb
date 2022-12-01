@@ -2,4 +2,5 @@
 
 require_relative "commands/command"
 require_relative "commands/cookie"
+require_relative "commands/download"
 require_relative "commands/scaffold"
