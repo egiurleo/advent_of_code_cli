@@ -31,11 +31,11 @@ module AdventOfCode
       private
 
       def cookie
-        @cookie ||= File.read("cookie.txt").strip
+        @cookie ||= ENV["AOC_COOKIE"]
       end
 
       def cookie_present?
-        File.exist?("cookie.txt")
+        ENV.key?("AOC_COOKIE")
       end
 
       def fetch_input

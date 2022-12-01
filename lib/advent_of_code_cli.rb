@@ -20,11 +20,6 @@ module AdventOfCode
       rescue_invalid_day_error
     end
 
-    desc "cookie VALUE", "store your Advent of Code cookie with value VALUE in the cookie.txt file"
-    def cookie(value)
-      AdventOfCode::Commands::Cookie.new(value: value).execute
-    end
-
     desc "download DAY", "download your input for day DAY"
     option :year, default: Time.now.year.to_s
     def download(day)
@@ -32,7 +27,7 @@ module AdventOfCode
     rescue AdventOfCode::InvalidDayError
       rescue_invalid_day_error
     rescue AdventOfCode::MissingCookieError
-      say "Error: Cannot find cookie in cookie.txt file.", :red
+      say "Error: Cannot find cookie in the AOC_COOKIE environment variable.", :red
     end
 
     desc "solve DAY", "run your solutions for day DAY"
