@@ -4,7 +4,7 @@ require_relative "lib/advent_of_code_cli/version"
 
 Gem::Specification.new do |spec|
   spec.name = "advent_of_code_cli"
-  spec.version = AdventOfCodeCli::VERSION
+  spec.version = AdventOfCode::VERSION
   spec.authors = ["Emily Samp"]
   spec.email = ["emily.samp@icloud.com"]
 

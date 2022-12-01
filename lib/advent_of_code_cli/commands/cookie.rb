@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module AdventOfCodeCli
+module AdventOfCode
   module Commands
     class Cookie
       def initialize(value:)

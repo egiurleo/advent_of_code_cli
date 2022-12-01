@@ -2,7 +2,7 @@
 
 require 'benchmark'
 
-module AdventOfCodeCli
+module AdventOfCode
   module Commands
     class Solve < Command
       def execute

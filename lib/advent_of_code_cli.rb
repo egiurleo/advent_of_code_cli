@@ -5,46 +5,44 @@ require "thor"
 require_relative "advent_of_code_cli/version"
 require_relative "advent_of_code_cli/commands"
 
-module AdventOfCodeCli
+module AdventOfCode
   class Error < StandardError; end
   class InvalidDayError < Error; end
   class MissingCookieError < Error; end
   class MissingInputError < Error; end
   class MissingSolutionError < Error; end
-end
 
-module AdventOfCode
   class CLI < Thor
     desc "scaffold DAY", "generate files for day DAY"
     def scaffold(day)
-      AdventOfCodeCli::Commands::Scaffold.new(day: day.to_i).execute
-    rescue AdventOfCodeCli::InvalidDayError
+      AdventOfCode::Commands::Scaffold.new(day: day.to_i).execute
+    rescue AdventOfCode::InvalidDayError
       rescue_invalid_day_error
     end
 
     desc "cookie VALUE", "store your Advent of Code cookie with value VALUE in the cookie.txt file"
     def cookie(value)
-      AdventOfCodeCli::Commands::Cookie.new(value: value).execute
+      AdventOfCode::Commands::Cookie.new(value: value).execute
     end
 
     desc "download DAY", "download your input for day DAY"
     option :year, default: Time.now.year.to_s
     def download(day)
-      AdventOfCodeCli::Commands::Download.new(day: day.to_i, year: options[:year].to_i).execute
-    rescue AdventOfCodeCli::InvalidDayError
+      AdventOfCode::Commands::Download.new(day: day.to_i, year: options[:year].to_i).execute
+    rescue AdventOfCode::InvalidDayError
       rescue_invalid_day_error
-    rescue AdventOfCodeCli::MissingCookieError
+    rescue AdventOfCode::MissingCookieError
       say "Error: Cannot find cookie in cookie.txt file.", :red
     end
 
     desc "solve DAY", "run your solutions for day DAY"
     def solve(day)
-      AdventOfCodeCli::Commands::Solve.new(day: day.to_i).execute
-    rescue AdventOfCodeCli::InvalidDayError
+      AdventOfCode::Commands::Solve.new(day: day.to_i).execute
+    rescue AdventOfCode::InvalidDayError
       rescue_invalid_day_error
-    rescue AdventOfCodeCli::MissingInputError
+    rescue AdventOfCode::MissingInputError
       say "Error: Cannot find input file.", :red
-    rescue AdventOfCodeCli::MissingSolutionError
+    rescue AdventOfCode::MissingSolutionError
       say "Error: Cannot find solution file.", :red
     end
 

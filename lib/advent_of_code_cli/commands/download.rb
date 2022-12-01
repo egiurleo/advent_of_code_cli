@@ -3,7 +3,7 @@
 require "net/http"
 require "uri"
 
-module AdventOfCodeCli
+module AdventOfCode
   module Commands
     class Download < Command
       def initialize(year:, day:)
