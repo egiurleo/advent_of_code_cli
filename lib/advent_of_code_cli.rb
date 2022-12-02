@@ -7,8 +7,10 @@ require_relative "advent_of_code_cli/commands"
 
 module AdventOfCode
   class Error < StandardError; end
+  class ExampleAlreadyExistsError < Error; end
   class InvalidDayError < Error; end
   class MissingCookieError < Error; end
+  class MissingExampleError < Error; end
   class MissingInputError < Error; end
   class MissingSolutionError < Error; end
 
@@ -40,6 +42,9 @@ module AdventOfCode
     rescue AdventOfCode::MissingSolutionError
       say "Error: Cannot find solution file.", :red
     end
+
+    desc "example", "create and run example files"
+    subcommand "example", Commands::Example::CLI
 
     private
 
