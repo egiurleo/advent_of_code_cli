@@ -52,6 +52,8 @@ module Day01
 end
 ```
 
+...where `input` is an `Array[String]` of all the lines without newlines.
+
 I would love to make this structure configurable in the future.
 
 ### Download
