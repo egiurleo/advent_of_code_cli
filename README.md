@@ -113,6 +113,61 @@ Done!
 
 This command expects files to be in the format provided by the `scaffold` command. Once again, I would love to make this configurable but haven't gotten around to it yet.
 
+### Examples
+
+It is often helpful to run our solutions against example input. The `example` command can help you create and run examples of your own invention.
+
+#### Create a new example
+
+You can create a new file for example input by running the following command:
+
+```
+bundle exec aoc_cli example new 1 A
+```
+
+The first argument specifies the day, and the second argument is the name of the example. You may choose whatever name you'd like.
+
+This will generate the following output:
+
+```
+Creating examples/01/A.txt...
+Creating examples/01/A_expected.yml...
+Done!
+```
+
+- `examples/01/A.txt` is a blank text file where you can enter your own input for the problem.
+- `examples/01/A_expected.yml` is a YAML file with the following content:
+
+```
+part_one: ~
+part_two: ~
+```
+
+Replace the two tildes (`~`) with the expected result of running your solution against the example input provided.
+
+#### Running examples
+
+You can check your solution against an example with the following command:
+
+```
+bundle exec aoc_cli example solve 1 A
+```
+
+This will output the following:
+
+```
+Reading input...
+Loading solution...
+
+Running part one with example A...
+Part one result: 1034 ✅
+Took 0.000259 seconds to solve
+
+Running part two with example A...
+Part two result: 7934 ✅
+Took 0.000253 seconds to solve
+```
+
 ## Contributing
 
 Issues and code contributions are welcome! Happy Advent of Code to all who celebrate! 🎁

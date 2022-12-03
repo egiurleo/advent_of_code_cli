@@ -25,6 +25,14 @@ module AdventOfCode
         "inputs/#{day_string}.txt"
       end
 
+      def example_file_name
+        "examples/#{day_string}/#{@name}.txt"
+      end
+
+      def example_expected_file_name
+        "examples/#{day_string}/#{@name}_expected.yml"
+      end
+
       def create_file(file_name, contents = nil)
         File.open(file_name, "w") do |file|
           file.puts contents if contents
