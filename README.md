@@ -65,6 +65,7 @@ In order for this to work, you must provide your Advent of Code session cookie t
 ```bash
 export AOC_COOKIE=your-cookie
 ```
+To obtain the cookie, sign into Advent of Code through your browser, then use the developer tools to examine the headers for a page request. The `cookie:` header should contain a value like `session=a1b2c3...`. The part from `a1b2c3...` onwards is what your need for `AOC_COOKIE`.
 
 Once the environment variable is set, you can request your personal input for any day.
 
