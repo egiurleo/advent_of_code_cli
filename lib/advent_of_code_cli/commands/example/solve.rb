@@ -12,6 +12,7 @@ module AdventOfCode
 
         def execute
           raise MissingExampleError unless File.exist?(example_file_name)
+          raise MissingExampleError unless File.exist?(example_expected_file_name)
           raise MissingSolutionError unless File.exist?(solution_file_name)
 
           say "Reading input..."
