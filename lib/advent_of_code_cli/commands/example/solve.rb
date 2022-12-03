@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'yaml'
 
 module AdventOfCode
   module Commands
@@ -37,8 +38,19 @@ module AdventOfCode
           result = Object.const_get(module_name).send("part_#{part}", input)
           end_time = Time.now
 
-          say "Part #{part} result: #{result}"
+          expected_result = expected_answers["part_#{part}"]
+
+          if result == expected_result
+            say "Part #{part} result: #{result} ✅"
+          else
+            say "Part #{part} result: #{result} ❌ (expected #{expected_result})"
+          end
+
           say "Took #{end_time - start_time} seconds to solve"
+        end
+
+        def expected_answers
+          @expected ||= YAML.load(File.read(example_expected_file_name))
         end
       end
     end

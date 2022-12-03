@@ -29,7 +29,19 @@ module AdventOfCode
           say("Creating #{example_file_name}...")
           create_file(example_file_name)
 
+          say("Creating #{example_expected_file_name}...")
+          create_file(example_expected_file_name, expected_file_contents)
+
           say "Done!", :green
+        end
+
+        private
+
+        def expected_file_contents
+          <<~RUBY
+            part_one: ~
+            part_two: ~
+          RUBY
         end
       end
     end
