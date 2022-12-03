@@ -42,7 +42,9 @@ module AdventOfCode
 
           expected_result = expected_answers["part_#{part}"]
 
-          if result == expected_result
+          if expected_result.nil?
+            say "Part #{part} result: #{result} ⚠️  (no expectation provided)"
+          elsif result == expected_result
             say "Part #{part} result: #{result} ✅"
           else
             say "Part #{part} result: #{result} ❌ (expected #{expected_result})"
