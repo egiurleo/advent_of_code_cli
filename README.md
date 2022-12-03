@@ -113,6 +113,50 @@ Done!
 
 This command expects files to be in the format provided by the `scaffold` command. Once again, I would love to make this configurable but haven't gotten around to it yet.
 
+### Examples
+
+It is often helpful to run our solutions against example input. The `example` command can help you create and run examples of your own invention.
+
+#### Create a new example
+
+You can create a new file for example input by running the following command:
+
+```
+bundle exec aoc_cli example new 1 A
+```
+
+This will generate the following output:
+
+```
+Creating examples/01/A.txt...
+Done!
+```
+
+In this case, `examples/01/A.txt` is a blank file where you can enter your own input for the problem. You may provide whatever name you'd like for your example input.
+
+#### Running examples
+
+You can run your solution against an example with the following command:
+
+```
+bundle exec aoc_cli example solve 1 A
+```
+
+This will output the following:
+
+```
+Reading input...
+Loading solution...
+
+Running part one with example A...
+Part one result: 1034
+Took 0.000259 seconds to solve
+
+Running part two with example A...
+Part two result: 7934
+Took 0.000253 seconds to solve
+```
+
 ## Contributing
 
 Issues and code contributions are welcome! Happy Advent of Code to all who celebrate! 🎁
