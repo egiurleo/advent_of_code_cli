@@ -125,18 +125,29 @@ You can create a new file for example input by running the following command:
 bundle exec aoc_cli example new 1 A
 ```
 
+The first argument specifies the day, and the second argument is the name of the example. You may choose whatever name you'd like.
+
 This will generate the following output:
 
 ```
 Creating examples/01/A.txt...
+Creating examples/01/A_expected.yml...
 Done!
 ```
 
-In this case, `examples/01/A.txt` is a blank file where you can enter your own input for the problem. You may provide whatever name you'd like for your example input.
+- `examples/01/A.txt` is a blank text file where you can enter your own input for the problem.
+- `examples/01/A_expected.yml` is a YAML file with the following content:
+
+```
+part_one: ~
+part_two: ~
+```
+
+Replace the two tildes (`~`) with the expected result of running your solution against the example input provided.
 
 #### Running examples
 
-You can run your solution against an example with the following command:
+You can check your solution against an example with the following command:
 
 ```
 bundle exec aoc_cli example solve 1 A
@@ -149,11 +160,11 @@ Reading input...
 Loading solution...
 
 Running part one with example A...
-Part one result: 1034
+Part one result: 1034 ✅
 Took 0.000259 seconds to solve
 
 Running part two with example A...
-Part two result: 7934
+Part two result: 7934 ✅
 Took 0.000253 seconds to solve
 ```
 
