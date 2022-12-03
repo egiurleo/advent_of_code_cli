@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "example/new"
 require_relative "example/solve"
 

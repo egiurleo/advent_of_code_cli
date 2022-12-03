@@ -21,9 +21,8 @@ module AdventOfCode
           end
 
           if File.exist?(example_file_name)
-            raise ExampleAlreadyExistsError.new(
-              "could not create example file because file #{example_file_name} already exists"
-            )
+            raise ExampleAlreadyExistsError,
+                  "could not create example file because file #{example_file_name} already exists"
           end
 
           say("Creating #{example_file_name}...")

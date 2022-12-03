@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'yaml'
+
+require "yaml"
 
 module AdventOfCode
   module Commands
@@ -51,7 +52,7 @@ module AdventOfCode
         end
 
         def expected_answers
-          @expected ||= YAML.load(File.read(example_expected_file_name))
+          @expected_answers ||= YAML.safe_load(File.read(example_expected_file_name))
         end
       end
     end
