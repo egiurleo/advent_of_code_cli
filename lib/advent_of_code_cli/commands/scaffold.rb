@@ -4,8 +4,11 @@ module AdventOfCode
   module Commands
     class Scaffold < Command
       def execute
-        say("Creating file: #{solution_file_name}...")
-        create_file(solution_file_name, solution_file_contents)
+
+        unless File.exist?(solution_file_name)
+          say("Creating file: #{solution_file_name}...")
+          create_file(solution_file_name, solution_file_contents)
+        end
 
         unless Dir.exist?("inputs")
           say("Creating inputs directory...")
