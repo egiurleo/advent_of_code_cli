@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    advent_of_code_cli (0.1.6)
+    advent_of_code_cli (0.1.7)
       thor (>= 1.2.0)
 
 GEM
