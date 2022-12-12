@@ -15,8 +15,10 @@ module AdventOfCode
           Dir.mkdir("inputs")
         end
 
-        say("Creating file: #{input_file_name}...")
-        create_file(input_file_name)
+        unless File.exist?(input_file_name)
+          say("Creating file: #{input_file_name}...")
+          create_file(input_file_name)
+        end
 
         unless Dir.exist?("examples")
           say("Creating examples directory...")
