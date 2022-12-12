@@ -20,7 +20,7 @@ Run `bundle install`.
 
 ### Scaffold
 
-This command will set up the files for any day of Advent of Code. It takes a nubmer between 1 and 25 as an argument.
+This command will set up the files for any day of Advent of Code. It takes a number between 1 and 25 as an argument.
 
 ```bash
 bundle exec aoc_cli scaffold 1
