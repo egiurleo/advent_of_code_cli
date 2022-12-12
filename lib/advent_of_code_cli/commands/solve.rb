@@ -33,6 +33,8 @@ module AdventOfCode
 
         say "Part #{part} result: #{result}"
         say "Took #{end_time - start_time} seconds to solve"
+      rescue NotImplementedError
+        say "Part #{part} has not yet been implemented", :yellow
       end
     end
   end
