@@ -51,6 +51,8 @@ module AdventOfCode
           end
 
           say "Took #{end_time - start_time} seconds to solve"
+        rescue NotImplementedError
+          say "Part #{part} has not yet been implemented", :yellow
         end
 
         def expected_answers
