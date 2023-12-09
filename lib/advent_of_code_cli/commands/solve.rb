@@ -28,7 +28,7 @@ module AdventOfCode
 
       def solution(module_name, part, input)
         start_time = Time.now
-        result = Object.const_get(module_name).send("part_#{part}", input)
+        result = Object.const_get(module_name).send("part_#{part}", input.dup)
         end_time = Time.now
 
         say "Part #{part} result: #{result}"
